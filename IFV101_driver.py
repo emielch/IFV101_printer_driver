@@ -7,11 +7,11 @@ import math
 import thread
 
 ser = serial.Serial('/dev/ttyS0', 115200)
-sBusy = Button(4,False)
-pErr = Button(17,False)
-st0 = Button(22,False)
+sBusy = Button(24,False)
+pErr = Button(23,False)
+st0 = Button(17,False)
 st1 = Button(27,False)
-st2 = Button(18,False)
+st2 = Button(22,False)
 
 imgBuffer = []
 errFunc = None
@@ -101,8 +101,10 @@ def sendImg(imgData):
    for x in range(dataBlockAm):
       startPos = x * blockSize
       endPos = min((x + 1) * blockSize, len(imgData))
-
+	  
+	  time.sleep(0.003)  # wait a moment for the sBusy signal to arrive
       sBusy.wait_for_release()
+	  
       ser.write(imgData[startPos:endPos])
 
 
