@@ -33,14 +33,14 @@ def regErrCallback(_errFunc):
     errFunc(0, 'function registered')
 
 
-def checkErr():
+def checkErr(channel):
     global errFunc
     errCode = 0
     errMess = 'Undefined Error'
 
     # print [pErr.value, GPIO.input(st0_pin), GPIO.input(st1_pin), GPIO.input(st2_pin)]
 
-    if pErr.value:
+    if GPIO.input(pErr_pin):
         if GPIO.input(st0_pin) and not GPIO.input(st1_pin) \
             and GPIO.input(st2_pin):
             errMess = 'Return-waiting status'
