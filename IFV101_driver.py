@@ -27,6 +27,9 @@ imgBuffer = []
 errFunc = None
 
 
+checkErr(0)
+
+
 def regErrCallback(_errFunc):
     global errFunc
     errFunc = _errFunc
@@ -38,7 +41,7 @@ def checkErr(channel):
     errCode = 0
     errMess = 'Undefined Error'
 
-    # print [pErr.value, GPIO.input(st0_pin), GPIO.input(st1_pin), GPIO.input(st2_pin)]
+    # print [GPIO.input(pErr_pin), GPIO.input(st0_pin), GPIO.input(st1_pin), GPIO.input(st2_pin)]
 
     if GPIO.input(pErr_pin):
         if GPIO.input(st0_pin) and not GPIO.input(st1_pin) \
