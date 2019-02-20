@@ -125,7 +125,7 @@ def sendImg(imgData):
         startPos = x * blockSize
         endPos = min((x + 1) * blockSize, len(imgData))
 
-        time.sleep(0.003)  # wait a moment for the sBusy signal to arrive
+        time.sleep(0.004)  # wait a moment for the sBusy signal to arrive
         wait_for_release(sBusy_pin)
 
         ser.write(imgData[startPos:endPos])
