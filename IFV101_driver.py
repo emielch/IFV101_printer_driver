@@ -27,13 +27,11 @@ imgBuffer = []
 errFunc = None
 
 
-checkErr(0)
-
-
 def regErrCallback(_errFunc):
     global errFunc
     errFunc = _errFunc
     errFunc(0, 'function registered')
+	checkErr(0)
 
 
 def checkErr(channel):
